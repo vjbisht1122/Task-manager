@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskManager</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-clipboard-list"></i> TaskManager</h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTasks">0</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedTasks">0</span>
+                        <span class="stat-label">Done</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="pendingTasks">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="task-input-section">
+                <div class="input-container">
+                    <input type="text" id="taskInput" placeholder="Add a new task..." maxlength="150">
+                    <div class="input-controls">
+                        <select id="prioritySelect" class="priority-select">
+                            <option value="low">Low Priority</option>
+                            <option value="medium" selected>Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                        <select id="categorySelect" class="category-select">
+                            <option value="work">Work</option>
+                            <option value="personal" selected>Personal</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="health">Health</option>
+                            <option value="Food">Food</option>
+                            <option value="Games">Games</option>
+                        </select>
+                        <button onclick="addTask()" class="add-task-btn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-tabs">
+                    <button onclick="filterTasks('all')" class="filter-tab active" data-filter="all">
+                        <i class="fas fa-list"></i> All Tasks
+                    </button>
+                    <button onclick="filterTasks('pending')" class="filter-tab" data-filter="pending">
+                        <i class="fas fa-clock"></i> Pending
+                    </button>
+                    <button onclick="filterTasks('completed')" class="filter-tab" data-filter="completed">
+                        <i class="fas fa-check-circle"></i> Completed
+                    </button>
+                </div>
+                <div class="filter-actions">
+                    <button onclick="clearCompleted()" class="action-btn clear-btn">
+                        <i class="fas fa-trash-alt"></i> Clear Completed
+                    </button>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <div id="taskList" class="task-list"></div>
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>No tasks yet</h3>
+                    <p>Create your first task to get organized</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

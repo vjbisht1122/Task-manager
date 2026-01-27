@@ -1,0 +1,1 @@
+Task Manager is a simple web application built to practice core JavaScript concepts such as DOM manipulation, event handling, and localStorage. The project focuses on implementing real-world CRUD operations while maintaining a clean and responsive user interface using HTML and CSS.
